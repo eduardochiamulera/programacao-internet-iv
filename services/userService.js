@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 class UserService{
     
     static async create(entity){
-        let user = await findUser(entity);
+        let user = await this.findUser(entity);
         if(user != null){
             return { erro : "Usuário já existe no banco" };
         }
@@ -12,7 +12,7 @@ class UserService{
         return User.create(entity);
     }
 
-    static async findUser(user){
+    static async findUserByEmail(user){
         return await User.findOne({ "email" : user.email });
     }
 
@@ -30,7 +30,7 @@ class UserService{
             {$set: { name: entity.name, email: entity.email, password : entity.password }}
         );
         
-        return this.findById(id);
+        return await this.findById(id);
     }
 
     static async remove(id){
