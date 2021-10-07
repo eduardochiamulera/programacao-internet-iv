@@ -49,7 +49,7 @@ class ProdutoController{
                 await ProdutoService.remove(req.params.id);
                 return res.status(204).end();
             }catch(err){
-                return res.status(400).json({error: 'Falha ao salvar produto' + err})
+                return res.status(400).json({error: 'Falha ao remover produto' + err})
             }
         }
 }
