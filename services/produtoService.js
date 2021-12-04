@@ -6,8 +6,10 @@ class ProdutoService{
         return Produto.find({});
     }
 
-    static create(entity){
-        return Produto.create(entity);
+    static async create(entity){
+        var prod = await Produto.create(entity);
+        console.log("PROD" + prod)
+        return prod;
     }
 
     static findById(id){

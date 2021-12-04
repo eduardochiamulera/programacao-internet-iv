@@ -27,7 +27,7 @@ class ProdutoController{
     static create = async (req, res) =>{
         try{
             const produto = await ProdutoService.create(req.body);
-
+            console.log(produto)
             return res.status(201).json({ produto });
         }catch(err){
             return res.status(400).json({error: 'Falha ao salvar produto' + err})

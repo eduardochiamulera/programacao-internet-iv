@@ -1,10 +1,9 @@
 const User = require('../model/user');
-const bcrypt = require('bcryptjs');
 
 class UserService{
     
     static async create(entity){
-        let user = await this.findUser(entity);
+        let user = await this.findUserByEmail(entity);
         if(user != null){
             return { erro : "Usuário já existe no banco" };
         }

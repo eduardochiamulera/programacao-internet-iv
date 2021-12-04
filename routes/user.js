@@ -5,12 +5,12 @@ const Utils = require('../services/utils');
 
 router.post('/', UserController.create);
 
-router.get('/', Utils.verifyJWT, UserController.list);
+router.get('/', UserController.list);
 
-router.get('/:id', Utils.verifyJWT, UserController.findById);
+router.get('/:id',UserController.findById);
 
-router.put('/:id', Utils.verifyJWT, UserController.update);
+router.put('/:id', UserController.update);
 
-router.delete('/:id', Utils.verifyJWT, UserController.delete);
+router.delete('/:id', UserController.delete);
 
 module.exports = router;
